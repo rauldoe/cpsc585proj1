@@ -1,3 +1,12 @@
+#TODO:
+#1. Attach correct values to test data -> pd
+#2. Update weights and bias to correct the passes -> pd
+#3. Matplotlib to ​plot the error rate as a function of the number of epochs​ -> ken, william
+#4. Q. Are all letters in the training set linearly separable? -> william
+#5. Q. Are all letters in the test set correctly classified? -> pd
+#6. Q. How similar are the misclassified items to the items in the training set? -> ken, william
+#7. Fix train, test for all characters -> pd
+
 #!/usr/bin/env python3
 
 # Character recognition
