@@ -80,3 +80,5 @@ TEST_SET = [
 for x in TEST_SET:
     response = dot(w, x) + b
     print(f'Prediction: {threshold(response)}')
+
+    #this is a test
