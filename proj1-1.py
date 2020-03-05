@@ -44,11 +44,11 @@ def train(referenceSetItem, id):
     for key, value in referenceSetItem.items():
         image = value['image']
 
-        index = -1
+        index = 0
         if (key == id):
             index = +1
         else:
-            index = -1
+            index = 0
         trainingSet.append([char2vec(image), index])
 
     b = 0
@@ -87,10 +87,14 @@ def predict(referenceSetItem, nnTrainResultSetItem, itemToTest):
 
 def initializeTrainSet(referenceSetItem, trainingData):
     i = 0
+    lengthOfTrainData = len(trainingData)
     for c in ascii_lowercase:
-        imageData = trainingData[i]
-        addToReferenceSet(referenceSetItem, c, imageData)
-        i += 1
+        if (i+1<=lengthOfTrainData):
+            imageData = trainingData[i]
+            addToReferenceSet(referenceSetItem, c, imageData)
+            i += 1
+        else:
+            break
 
 def initializeTestSet(testDataItem, testSetItem):
     for i in testDataItem:
@@ -127,13 +131,7 @@ TRAINING_DATA = [
     ],
 ]
 
-#initializeTrainSet(referenceSet, TRAINING_DATA)
-imageData = TRAINING_DATA[0]
-addToReferenceSet(referenceSet, 'a', imageData)
-imageData = TRAINING_DATA[1]
-addToReferenceSet(referenceSet, 'b', imageData)
-imageData = TRAINING_DATA[2]
-addToReferenceSet(referenceSet, 'o', imageData)
+initializeTrainSet(referenceSet, TRAINING_DATA)
 
 #Training
 
