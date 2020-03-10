@@ -18,6 +18,15 @@ def char2vec(char):
         for pixel in line
     ]
 
+#Plot the perceptron error rate vs number of epochs.
+def plotPerceptron(epochValues, errorRateValues, letter):
+    plot.plot(epochValues, errorRateValues, color='blue', marker='x')
+    plot.title('Error Rate versus Epoch for Perceptron ' + letter)
+    plot.xlabel('Epoch')
+    plot.ylabel('Error Rate %')
+    plot.grid(True)
+    plot.show()
+
 #Predict whether the letter is the desired letter or not.
 def predict(inputs, weights):
     response = sum([x_i * y_i for x_i, y_i in zip(inputs, weights)])
@@ -42,15 +51,6 @@ def errorRateTesting(predictions, letter):
     if(predictions[letter] == 0):
         value += 1
     return (100 * (value/len(predictions)))
-
-#Plot the perceptron error rate vs number of epochs.
-def plotPerceptron(epochValues, errorRateValues, letter):
-    plot.plot(epochValues, errorRateValues, color='blue', marker='x')
-    plot.title('Error Rate versus Epoch for Perceptron ' + letter)
-    plot.xlabel('Epoch')
-    plot.ylabel('Error Rate %')
-    plot.grid(True)
-    plot.show()
 
 #Update the weights
 def updateWeights(trainingData, weights, epochs, learningRate, letter):

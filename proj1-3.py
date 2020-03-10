@@ -1,16 +1,20 @@
 
+import numpy as np
 from string import ascii_lowercase
 from random import random
 from dataset import TRAINING_DATA, TEST_DATA
 
 g_neuralNetworkSet = None
 
+def lookup():
+    lookup = [for i in ascii_lowercase]
+
 def char2vec(char):
-    return [
+    return np.array([
         -1 if pixel == '.' else 1
         for line in char
         for pixel in line
-    ]
+    ])
 
 def initTrainingDataInfo(trainingData, ids):
     trainingDataInfo = {}
